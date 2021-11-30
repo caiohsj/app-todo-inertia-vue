@@ -16,7 +16,7 @@ use App\Http\Controllers\AboutController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::resource('todos', TodoController::class);
 

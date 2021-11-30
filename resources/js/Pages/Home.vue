@@ -2,11 +2,12 @@
   <Layout>
     <div class="home">
       <div class="center">
-        <button
+        <Link
           class="btn btn-success button-add"
+          href="/todos/create"
         >
           New
-        </button>
+        </Link>
         <TodoList
           :list="todos"
           @toggle="toggleTodo"
@@ -17,6 +18,7 @@
 </template>
 
 <script lang="js">
+import { Link } from '@inertiajs/inertia-vue';
 import Layout from '../Layout';
 import TodoList from '../components/lists/TodoList';
 
@@ -25,6 +27,7 @@ export default {
   components: {
     Layout,
     TodoList,
+    Link,
   },
   props: {
     todos: {
