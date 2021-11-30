@@ -19,6 +19,16 @@
         />
       </div>
       <span>{{ todo.description }}</span>
+      <div
+        class="ml-auto actions"
+      >
+        <i
+          class="bi bi-pencil"
+        />
+        <i
+          class="bi bi-trash text-danger"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -59,6 +69,14 @@ export default {
       i {
         margin-right: 20px;
         font-size: 16px;
+      }
+    }
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      width: 48px;
+      i {
+        cursor: pointer;
       }
     }
   }

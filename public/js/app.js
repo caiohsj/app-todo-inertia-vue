@@ -3165,6 +3165,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'TodoList',
   props: {
@@ -3420,7 +3430,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".todos-container[data-v-28966369] {\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  margin: auto;\n  border: 2px solid #9553e9;\n  border-radius: 4px;\n  box-shadow: 0px 2px 10px black;\n  margin-top: 10px;\n}\n.todos-container .todo-item[data-v-28966369] {\n  display: flex;\n  align-items: center;\n  padding: 10px;\n}\n.todos-container .todo-item .todo-item-status[data-v-28966369] {\n  cursor: pointer;\n}\n.todos-container .todo-item .todo-item-status i[data-v-28966369] {\n  margin-right: 20px;\n  font-size: 16px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".todos-container[data-v-28966369] {\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  margin: auto;\n  border: 2px solid #9553e9;\n  border-radius: 4px;\n  box-shadow: 0px 2px 10px black;\n  margin-top: 10px;\n}\n.todos-container .todo-item[data-v-28966369] {\n  display: flex;\n  align-items: center;\n  padding: 10px;\n}\n.todos-container .todo-item .todo-item-status[data-v-28966369] {\n  cursor: pointer;\n}\n.todos-container .todo-item .todo-item-status i[data-v-28966369] {\n  margin-right: 20px;\n  font-size: 16px;\n}\n.todos-container .todo-item .actions[data-v-28966369] {\n  display: flex;\n  justify-content: space-between;\n  width: 48px;\n}\n.todos-container .todo-item .actions i[data-v-28966369] {\n  cursor: pointer;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -9910,12 +9920,25 @@ var render = function () {
         ),
         _vm._v(" "),
         _c("span", [_vm._v(_vm._s(todo.description))]),
+        _vm._v(" "),
+        _vm._m(0, true),
       ])
     }),
     0
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ml-auto actions" }, [
+      _c("i", { staticClass: "bi bi-pencil" }),
+      _vm._v(" "),
+      _c("i", { staticClass: "bi bi-trash text-danger" }),
+    ])
+  },
+]
 render._withStripped = true
 
 
