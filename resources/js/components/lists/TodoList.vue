@@ -28,6 +28,7 @@
         />
         <i
           class="bi bi-trash text-danger"
+          @click="handleDeleteTodo(todo)"
         />
       </div>
     </div>
@@ -49,6 +50,9 @@ export default {
     },
     handleEditTodo(todo) {
       this.$emit('edit', todo);
+    },
+    handleDeleteTodo(todo) {
+      this.$emit('delete', todo);
     },
   },
 };

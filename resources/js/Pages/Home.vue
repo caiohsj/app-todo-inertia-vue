@@ -12,6 +12,7 @@
           :list="todos"
           @toggle="toggleTodo"
           @edit="editTodo"
+          @delete="doDeleteTodo"
         />
         <UpdateTodo
           :open-modal="openDialog"
@@ -71,6 +72,9 @@ export default {
       };
       this.$inertia.put(`/todos/${todo.id}`, updatedTodo);
       this.closeModal();
+    },
+    doDeleteTodo(todo) {
+      this.$inertia.delete(`/todos/${todo.id}`);
     },
   },
 };

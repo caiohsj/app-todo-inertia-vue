@@ -3086,6 +3086,9 @@ __webpack_require__.r(__webpack_exports__);
       };
       this.$inertia.put("/todos/".concat(todo.id), updatedTodo);
       this.closeModal();
+    },
+    doDeleteTodo: function doDeleteTodo(todo) {
+      this.$inertia["delete"]("/todos/".concat(todo.id));
     }
   }
 });
@@ -3205,6 +3208,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'TodoList',
   props: {
@@ -3219,6 +3223,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     handleEditTodo: function handleEditTodo(todo) {
       this.$emit('edit', todo);
+    },
+    handleDeleteTodo: function handleDeleteTodo(todo) {
+      this.$emit('delete', todo);
     }
   }
 });
@@ -55445,7 +55452,11 @@ var render = function () {
           _vm._v(" "),
           _c("TodoList", {
             attrs: { list: _vm.todos },
-            on: { toggle: _vm.toggleTodo, edit: _vm.editTodo },
+            on: {
+              toggle: _vm.toggleTodo,
+              edit: _vm.editTodo,
+              delete: _vm.doDeleteTodo,
+            },
           }),
           _vm._v(" "),
           _c("UpdateTodo", {
@@ -55656,7 +55667,14 @@ var render = function () {
             },
           }),
           _vm._v(" "),
-          _c("i", { staticClass: "bi bi-trash text-danger" }),
+          _c("i", {
+            staticClass: "bi bi-trash text-danger",
+            on: {
+              click: function ($event) {
+                return _vm.handleDeleteTodo(todo)
+              },
+            },
+          }),
         ]),
       ])
     }),

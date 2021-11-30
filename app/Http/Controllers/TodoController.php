@@ -28,4 +28,12 @@ class TodoController extends Controller
 
         return Redirect::route('home');
     }
+
+    public function destroy($id)
+    {
+        $todo = Todo::findOrFail($id);
+        $todo->delete();
+
+        return Redirect::route('home');
+    }
 }
