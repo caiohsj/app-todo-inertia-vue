@@ -1,11 +1,11 @@
 <template>
   <header class="left-menu">
     <Link href="/">
-      <i class="bi bi-house"></i>
+      <i class="bi bi-house" />
       Home
     </Link>
     <Link href="/about">
-      <i class="bi bi-file-earmark-person"></i>
+      <i class="bi bi-file-earmark-person" />
       About
     </Link>
   </header>
