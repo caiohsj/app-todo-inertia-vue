@@ -11,6 +11,13 @@
         <TodoList
           :list="todos"
           @toggle="toggleTodo"
+          @edit="editTodo"
+        />
+        <UpdateTodo
+          :open-modal="openDialog"
+          :todo="currentTodo"
+          @closeModal="closeModal"
+          @update="doUpdateTodo"
         />
       </div>
     </div>
@@ -21,6 +28,7 @@
 import { Link } from '@inertiajs/inertia-vue';
 import Layout from '../Layout';
 import TodoList from '../components/lists/TodoList';
+import UpdateTodo from '../components/modals/UpdateTodo';
 
 export default {
   name: 'Home',
@@ -28,6 +36,7 @@ export default {
     Layout,
     TodoList,
     Link,
+    UpdateTodo,
   },
   props: {
     todos: {
@@ -35,12 +44,33 @@ export default {
       default: () => [],
     },
   },
+  data() {
+    return {
+      openDialog: false,
+      currentTodo: {},
+    };
+  },
   methods: {
     toggleTodo(todo) {
       const updatedTodo = {
         completed: !todo.completed,
       };
       this.$inertia.put(`/todos/${todo.id}`, updatedTodo);
+    },
+    editTodo(todo) {
+      this.currentTodo = todo;
+      this.openDialog = true;
+    },
+    closeModal() {
+      this.openDialog = false;
+    },
+    doUpdateTodo(todo) {
+      const updatedTodo = {
+        description: todo.description,
+        completed: todo.completed,
+      };
+      this.$inertia.put(`/todos/${todo.id}`, updatedTodo);
+      this.closeModal();
     },
   },
 };

@@ -24,6 +24,7 @@
       >
         <i
           class="bi bi-pencil"
+          @click="handleEditTodo(todo)"
         />
         <i
           class="bi bi-trash text-danger"
@@ -40,13 +41,16 @@ export default {
     list: {
       type: Array,
       default: [],
-    }
+    },
   },
   methods: {
     toggleTodo(todo) {
       this.$emit('toggle', todo);
-    }
-  }
+    },
+    handleEditTodo(todo) {
+      this.$emit('edit', todo);
+    },
+  },
 };
 </script>
 

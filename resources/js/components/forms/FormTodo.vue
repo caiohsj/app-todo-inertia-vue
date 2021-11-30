@@ -2,13 +2,13 @@
   <form>
     <div class="form-group">
       <label for="description">Description</label>
-      <textarea class="form-control" id="description" v-model="description"></textarea>
+      <textarea class="form-control" id="description" v-model="todo.description"></textarea>
     </div>
     <div class="form-group">
       <label for="status">Done?</label>
-      <select class="form-control" id="status" v-model="completed">
-        <option value="true">Yes</option>
-        <option value="false">No</option>
+      <select class="form-control" id="status" v-model="todo.completed">
+        <option value="1">Yes</option>
+        <option value="0">No</option>
       </select>
     </div>
     <button class="btn btn-primary" @click.prevent="handleSubmit">Submit</button>
@@ -18,18 +18,18 @@
 <script lang="js">
 export default {
   name: 'FormTodo',
-  data() {
-    return {
-      description: '',
-      completed: false,
-    };
+  props: {
+    todo: {
+      type: Object,
+      default: () => ({
+        description: '',
+        completed: false,
+      }),
+    },
   },
   methods: {
     handleSubmit() {
-      this.$emit('submit', {
-        description: this.description,
-        completed: this.completed,
-      });
+      this.$emit('submit', this.todo);
     },
   },
 };

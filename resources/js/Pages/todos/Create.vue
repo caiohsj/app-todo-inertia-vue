@@ -18,7 +18,10 @@ export default {
   },
   methods: {
     createTodo(todo) {
-      this.$inertia.post('/todos', todo);
+      this.$inertia.post('/todos', {
+        description: todo.description,
+        completed: todo.completed,
+      });
     },
   },
 };
