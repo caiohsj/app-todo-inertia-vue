@@ -5,14 +5,19 @@
       :key="todo.id"
       class="todo-item"
     >
-      <i
-        v-if="todo.completed"
-        class="bi bi-check-circle-fill"
-      />
-      <i
-        v-else
-        class="bi bi-exclamation-circle-fill"
-      />
+      <div
+        @click="toggleTodo(todo)"
+        class="todo-item-status"
+      >
+        <i
+          v-if="todo.completed"
+          class="bi bi-check-circle-fill text-success"
+        />
+        <i
+          v-else
+          class="bi bi-exclamation-circle-fill text-danger"
+        />
+      </div>
       <span>{{ todo.description }}</span>
     </div>
   </div>
@@ -27,6 +32,11 @@ export default {
       default: [],
     }
   },
+  methods: {
+    toggleTodo(todo) {
+      this.$emit('toggle', todo);
+    }
+  }
 };
 </script>
 
@@ -34,7 +44,7 @@ export default {
 .todos-container {
   display: flex;
   flex-direction: column;
-  max-width: 500px;
+  width: 100%;
   margin: auto;
   border: 2px solid #9553e9;
   border-radius: 4px;
@@ -44,8 +54,12 @@ export default {
     display: flex;
     align-items: center;
     padding: 10px;
-    i {
-      margin-right: 10px;
+    .todo-item-status {
+      cursor: pointer;
+      i {
+        margin-right: 20px;
+        font-size: 16px;
+      }
     }
   }
 }
