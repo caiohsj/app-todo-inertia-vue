@@ -6,3 +6,11 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+html, body, main#app {
+  font-family: 'Nunito', sans-serif;
+  height: 100%;
+}
+
+// Bootstrap Icons
+@import '~bootstrap-icons/font/bootstrap-icons.scss';

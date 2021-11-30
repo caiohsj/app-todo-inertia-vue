@@ -1,22 +1,16 @@
 <template>
-  <Layout>
-    <h1>{{ todos }}</h1>
-  </Layout>
+    <Layout>
+      <h1>About</h1>
+    </Layout>
 </template>
 
 <script lang="js">
 import Layout from '../Layout';
 
 export default {
-  name: 'Home',
+  name: 'About',
   components: {
     Layout,
-  },
-  props: {
-    todos: {
-      type: Array,
-      default: () => [],
-    },
   },
 };
 </script>
